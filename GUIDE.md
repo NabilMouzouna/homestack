@@ -12,7 +12,7 @@ This guide shows how to build the `homestack` binary and test the MVP end‑to�
 All commands below assume this directory:
 
 ```bash
-cd /Users/nabilmouzouna/School/PFE/homestack-mvp
+cd /homestack-mvp
 ```
 
 ---
@@ -20,7 +20,7 @@ cd /Users/nabilmouzouna/School/PFE/homestack-mvp
 ## 2. Build the binary
 
 ```bash
-cd /Users/nabilmouzouna/School/PFE/homestack-mvp
+cd /Users/homestack-mvp
 go build -o homestack ./cmd/homestack
 ```
 
@@ -72,7 +72,7 @@ Notes:
 Pick a folder that will act as the “local cloud” root (all files are stored under this directory). For example:
 
 ```bash
-mkdir -p /Users/nabilmouzouna/School/PFE/homestack-storage
+mkdir -p /Users/homestack-storage
 ```
 
 This folder is the **only** place the server will read/write files (enforced by `storage.Guard`).
@@ -85,14 +85,14 @@ Start the HTTP server on port 8080 and point it at your storage root:
 
 ```bash
 ./homestack run \
-  --storage-root /Users/nabilmouzouna/School/PFE/homestack-storage \
+  --storage-root /Users/homestack-storage \
   --port 8080
 ```
 
 You should see a log line similar to:
 
 ```text
-Listening on http://localhost:8080 (storage root: /Users/nabilmouzouna/School/PFE/homestack-storage)
+Listening on http://localhost:8080 (storage root: /Users/homestack-storage)
 ```
 
 Keep this terminal open; the process must stay running.
@@ -138,7 +138,7 @@ On the dashboard:
    - The file should exist on disk under:
 
      ```bash
-     ls /Users/nabilmouzouna/School/PFE/homestack-storage
+     ls /Users/homestack-storage
      ```
 
 #### Download a file
