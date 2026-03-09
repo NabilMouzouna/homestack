@@ -1,26 +1,46 @@
-# Binaries
+# Binaries (root-level build artifacts; release binaries in application/ are tracked)
 homestack
 homestack.exe
 *.exe
 *.dll
 *.so
 *.dylib
+!application/*.exe
 
 # Test
 *.test
 coverage.html
 coverage.out
 
-# App data (local)
+# App data (local — contains SQLite DB with users/sessions; never commit)
 homestack_data/
 
-# Env
+# Secrets and credentials
 .env
-.env.local
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+secrets/
+
+# Local config with secrets (if you add a config file)
+config.local.*
 *.local
 
 # IDE / OS
+.DS_Store
 .idea/
 .vscode/
-.DS_Store
+Thumbs.db
 *.log
+
+# Temporary and cache
+*.tmp
+*.temp
+*.swp
+.cache/
+
+# Database copies (in case someone dumps DB at repo root)
+*.db
+!**/migrations/
