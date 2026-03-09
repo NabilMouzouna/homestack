@@ -1,0 +1,26 @@
+# Binaries
+homestack
+homestack.exe
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Test
+*.test
+coverage.html
+coverage.out
+
+# App data (local)
+homestack_data/
+
+# Env
+.env
+.env.local
+*.local
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+*.log

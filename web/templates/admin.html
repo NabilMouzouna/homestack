@@ -1,0 +1,99 @@
+{{/* Admin template – matches SPEC-design-good-looking-uis-admin-mockup (UI shell only). */}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HomeStack — Admin</title>
+  <script src="/static/htmx.min.js"></script>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <header class="appbar">
+    <div class="appbar-left">
+      <a href="/" class="appbar-logo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/></svg>
+        HomeStack
+      </a>
+      <nav class="appbar-nav">
+        <a href="/files">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/><polyline points="2 7 12 7 12 19 2 19"/><polyline points="12 7 22 7 22 19 12 19"/></svg>
+          Files
+        </a>
+        <a href="/admin" class="active">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Admin
+        </a>
+      </nav>
+    </div>
+    <div class="appbar-user">
+      <span class="avatar">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </span>
+      <span>Admin</span>
+    </div>
+  </header>
+  <main class="main">
+    <h1>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      Users
+    </h1>
+    <div class="toolbar">
+      <button type="button" class="btn btn-primary">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+        Add user
+      </button>
+    </div>
+    <table class="user-table">
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Role</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>admin</td>
+          <td><span class="badge badge-admin">Admin</span></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>bob</td>
+          <td><span class="badge">User</span></td>
+          <td><button type="button" class="btn btn-danger">Remove</button></td>
+        </tr>
+        <tr>
+          <td>alice</td>
+          <td><span class="badge">User</span></td>
+          <td><button type="button" class="btn btn-danger">Remove</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="add-form">
+      <h2>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+        Add user
+      </h2>
+      <form>
+        <div class="form-group">
+          <label for="new-username">Username</label>
+          <input type="text" id="new-username" name="username" required placeholder="Username" />
+        </div>
+        <div class="form-group">
+          <label for="new-password">Password</label>
+          <input type="password" id="new-password" name="password" required placeholder="Password" />
+        </div>
+        <div class="form-group">
+          <label for="new-password-confirm">Confirm password</label>
+          <input type="password" id="new-password-confirm" name="password_confirm" required placeholder="Confirm password" />
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Add user</button>
+          <button type="button" class="btn">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </main>
+</body>
+</html>

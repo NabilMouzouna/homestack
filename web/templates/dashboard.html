@@ -1,0 +1,44 @@
+{{/* Dashboard page – HTMX-driven file browser using file APIs. */}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HomeStack — Files</title>
+  <script src="/static/htmx.min.js"></script>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <header class="appbar">
+    <a href="/files" class="appbar-logo">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/></svg>
+      HomeStack
+    </a>
+    <div class="appbar-user">
+      <span class="avatar">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </span>
+      <span>
+        {{- if .User -}}
+          {{- if .User.IsAdmin -}}Admin{{- else -}}{{.User.Username}}{{- end -}}
+        {{- else -}}
+          User
+        {{- end -}}
+      </span>
+    </div>
+  </header>
+  <main class="main">
+    <div id="files-root"
+         hx-get="/api/files"
+         hx-trigger="load"
+         hx-target="#files-root"
+         hx-swap="outerHTML">
+      <div class="file-list">
+        <div class="empty-state">
+          <p>Loading…</p>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
